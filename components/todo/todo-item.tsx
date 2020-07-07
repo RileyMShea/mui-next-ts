@@ -87,6 +87,11 @@ const TodoItem: React.FC<PropTypes.InferProps<typeof propTypes>> = ({
         secondary={DateTime.fromISO(
           todo.done ? todo.updatedAt : todo.createdAt,
         ).toRelative()}
+        secondaryTypographyProps={{
+          component: 'time',
+          // @ts-ignore
+          dateTime: todo.done ? todo.updatedAt : todo.createdAt,
+        }}
         onDoubleClick={() => setIsEditing(prevIsEditing => !prevIsEditing)}
       />
       <ListItemSecondaryAction>
